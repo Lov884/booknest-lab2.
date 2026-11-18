@@ -1,75 +1,44 @@
-# React + TypeScript + Vite
+# BookNest (Lab 2)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A single-page book catalog built with React and TypeScript. It continues the BookNest site from Lab 1.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Book catalog loaded from a REST API
+- Search by title or author
+- Filter by genre
+- Sorting by title, year or number of pages
+- Book details page (dynamic route `/books/:id`)
+- Add, edit and delete books, with form validation
+- Loading, error and empty states
 
-## React Compiler
+## Technologies
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+React, TypeScript, Vite, React Router, json-server, Git and GitHub
 
-## Expanding the ESLint configuration
+## Project structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- `src/types.ts` - Book types
+- `src/api.ts` - API functions (GET, POST, PUT, DELETE)
+- `src/components/` - BookCard, BookList, SearchBar, GenreFilter, SortSelect, Header, BookForm
+- `src/pages/` - CatalogPage, BookDetailsPage, AddBookPage, EditBookPage
+- `db.json` - data for json-server (20 books)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Routes
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+| Address | Page |
+|---|---|
+| `/` | Catalog |
+| `/books/:id` | Book details |
+| `/books/:id/edit` | Edit a book |
+| `/add` | Add a book |
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## How to run
 
-```
+1. Install dependencies: `npm install`
+2. Start the API in one terminal: `npm run server` (runs on http://localhost:3001)
+3. Start the site in a second terminal: `npm run dev` (runs on http://localhost:5173)
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+## Author
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+Abiyel Okoye, group Bi 24-1
