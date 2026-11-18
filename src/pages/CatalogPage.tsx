@@ -43,9 +43,12 @@ function CatalogPage() {
 
   return (
     <div>
-      <SearchBar value={search} onChange={setSearch} />
-      <GenreFilter genres={genres} value={genre} onChange={setGenre} />
-      <SortSelect value={sort} onChange={setSort} />
+      <h2>Catalog</h2>
+      <div className="filters">
+        <SearchBar value={search} onChange={setSearch} />
+        <GenreFilter genres={genres} value={genre} onChange={setGenre} />
+        <SortSelect value={sort} onChange={setSort} />
+      </div>
       <BookList books={visibleBooks} />
     </div>
   );

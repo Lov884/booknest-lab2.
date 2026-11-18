@@ -6,6 +6,7 @@ interface SearchBarProps {
 function SearchBar({ value, onChange }: SearchBarProps) {
   return (
     <input
+      className="search"
       type="text"
       placeholder="Search by title or author..."
       value={value}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { deleteBook, getBook } from "../api";
+import BookCover from "../components/BookCover";
 import type { Book } from "../types";
 
 function BookDetailsPage() {
@@ -33,15 +34,27 @@ function BookDetailsPage() {
 
   return (
     <div>
-      <Link to="/">← Back to catalog</Link>
-      <h2>{book.title}</h2>
-      <p>{book.author} · {book.year}</p>
-      <p>{book.genre} · {book.pages} pages</p>
-      <p>{book.description}</p>
-      <p>{book.available ? "Available" : "Not available"}</p>
-      <Link to={`/books/${book.id}/edit`}>Edit</Link>
-      {" | "}
-      <button onClick={handleDelete}>Delete</button>
+      <div className="detail">
+        <BookCover id={book.id} title={book.title} author={book.author} />
+        <div className="detail-info">
+          <h2>{book.title}</h2>
+          <p>{book.author} · {book.year}</p>
+          <p>{book.genre} · {book.pages} pages</p>
+          <p>{book.description}</p>
+          <p className={book.available ? "status available" : "status checked-out"}>
+            {book.available ? "Available" : "Not available"}
+          </p>
+          <div className="actions">
+            <Link className="button-link" to={`/books/${book.id}/edit`}>
+              Edit
+            </Link>
+            <button className="button-danger" onClick={handleDelete}>
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+      <Link className="back-link" to="/">← Back to catalog</Link>
     </div>
   );
 }
