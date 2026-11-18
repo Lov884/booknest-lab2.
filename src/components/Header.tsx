@@ -6,7 +6,6 @@ function Header() {
       <h1>BookNest</h1>
       <nav>
         <NavLink to="/">Catalog</NavLink>
-        {" | "}
         <NavLink to="/add">Add book</NavLink>
       </nav>
     </header>

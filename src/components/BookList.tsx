@@ -7,7 +7,7 @@ interface BookListProps {
 
 function BookList({ books }: BookListProps) {
   if (books.length === 0) {
-    return <p>No books found.</p>;
+    return <p className="empty">No books found.</p>;
   }
 
   return (

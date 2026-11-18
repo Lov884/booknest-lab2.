@@ -7,15 +7,17 @@ import EditBookPage from "./pages/EditBookPage";
 
 function App() {
   return (
-    <div>
+    <>
       <Header />
-      <Routes>
-        <Route path="/" element={<CatalogPage />} />
-        <Route path="/books/:id" element={<BookDetailsPage />} />
-        <Route path="/books/:id/edit" element={<EditBookPage />} />
-        <Route path="/add" element={<AddBookPage />} />
-      </Routes>
-    </div>
+      <main>
+        <Routes>
+          <Route path="/" element={<CatalogPage />} />
+          <Route path="/books/:id" element={<BookDetailsPage />} />
+          <Route path="/books/:id/edit" element={<EditBookPage />} />
+          <Route path="/add" element={<AddBookPage />} />
+        </Routes>
+      </main>
+    </>
   );
 }
 
